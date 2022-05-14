@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>E01.Basic_Syntax__Contitional_Statements_and_Loops</RootNamespace>
+  </PropertyGroup>
+
+</Project>
