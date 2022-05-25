@@ -10,22 +10,11 @@ namespace _1._Diagonal_Difference
 
             int[,] matrix = new int[sizeOfMatrix, sizeOfMatrix];
 
-            for (int row = 0; row < matrix.GetLength(0); row++)
-            {
-                var currentRow = Console.ReadLine()
-                    .Split(" ", StringSplitOptions.RemoveEmptyEntries)
-                    .Select(int.Parse)
-                    .ToArray();
-
-                for (int col = 0; col < matrix.GetLength(1); col++)
-                {
-                    matrix[row, col] = currentRow[col];
-                }
-            }
+            FillMatrix(matrix);
+                                  
 
             int sumPrime = 0;
-
-            
+                        
 
             for (int row = 0; row < matrix.GetLength(0); row++)
             {
@@ -46,6 +35,23 @@ namespace _1._Diagonal_Difference
             int difference = sumPrime - sumSecondary;
 
             Console.WriteLine(Math.Abs(difference));
+        }
+
+
+        private static void FillMatrix(int[,] matrix)
+        {
+            for (int row = 0; row < matrix.GetLength(0); row++)
+            {
+                int[] currentRow = Console.ReadLine()
+                    .Split(" ", StringSplitOptions.RemoveEmptyEntries)
+                    .Select(int.Parse)
+                    .ToArray();
+
+                for (int col = 0; col < matrix.GetLength(1); col++)
+                {
+                    matrix[row, col] = currentRow[col];
+                }
+            }
         }
     }
 }
