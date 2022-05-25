@@ -15,6 +15,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExerciseJaggedArray", "Exer
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "7. Pascal Triangle", "7. Pascal Triangle\7. Pascal Triangle.csproj", "{CDC80995-D0E9-4441-98F5-BF9E023AE330}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3. Primary Diagonal", "3. Primary Diagonal\3. Primary Diagonal.csproj", "{42F0FD5E-265C-424E-9A07-6A01DA6BC69C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4. Symbol in Matrix", "4. Symbol in Matrix\4. Symbol in Matrix.csproj", "{3E9AF206-8054-4F70-849B-A2CB33CBAA73}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +49,14 @@ Global
 		{CDC80995-D0E9-4441-98F5-BF9E023AE330}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CDC80995-D0E9-4441-98F5-BF9E023AE330}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CDC80995-D0E9-4441-98F5-BF9E023AE330}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42F0FD5E-265C-424E-9A07-6A01DA6BC69C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42F0FD5E-265C-424E-9A07-6A01DA6BC69C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42F0FD5E-265C-424E-9A07-6A01DA6BC69C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42F0FD5E-265C-424E-9A07-6A01DA6BC69C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E9AF206-8054-4F70-849B-A2CB33CBAA73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E9AF206-8054-4F70-849B-A2CB33CBAA73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E9AF206-8054-4F70-849B-A2CB33CBAA73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E9AF206-8054-4F70-849B-A2CB33CBAA73}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
