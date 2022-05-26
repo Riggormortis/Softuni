@@ -1,0 +1,83 @@
+  private static void MatrixPrintout(string[,] matrix, string splitter)
+        {
+            for (int i = 0; i < matrix.GetLength(0); i++)
+            {
+                for (int j = 0; j < matrix.GetLength(1); j++)
+                {
+                    Console.Write(matrix[i, j] + splitter);
+                }
+                Console.WriteLine();
+            }
+        }
+ 
+ 
+        private static bool VerifyIfIndexIsWithinMatrix(string[,] matrix, int row1, int col1, int row2, int col2)
+        {
+	    //FOR 2 INDEXES TO VALIDATE, REMOVE ROW2/COL2 FROM ARGUMENTS AND THE IF-STATEMENT BELOW
+            if (row1 >= 0 && row1 < matrix.GetLength(0)
+                && col1 >= 0 && col1 < matrix.GetLength(1)
+                && row2 >= 0 && row2 < matrix.GetLength(0)
+                && col2 >= 0 && col2 < matrix.GetLength(1))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+ 
+ 
+        private static void FillDataIntoMatrix(string[,] matrix, int rows, int cols, string splitter)
+        {
+            for (int i = 0; i < rows; i++)
+            {
+                string[] input = Console.ReadLine().Split(splitter, StringSplitOptions.RemoveEmptyEntries);
+                for (int j = 0; j < cols; j++)
+                {
+                    matrix[i, j] = input[j];
+                }
+ 
+            }
+        }
+ 
+ 
+JAGGED MATRIX FILLING IN
+	    int rows = int.Parse(Console.ReadLine());
+            int[][] matrix = new int[rows][];
+ 
+            for (int i = 0; i < rows; i++)
+            {
+               matrix[i] = Console.ReadLine().Split(' ', StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToArray();
+ 
+            }
+ 
+ 
+DIAGONAL SUMS
+  	  for (int i = 0; i < n; i++)
+            {
+                diagonalOne += matrix[i,i];
+            }
+ 
+            for (int j = 0; j < n; j++)
+            {
+                diagonalTwo += matrix[j, n - j - 1];
+            }
+ 
+MAXIMAL SUM (3X3) IN THE MATRIX
+	   for (int i = 0; i < rows - 2; i++)
+            {
+                for (int j = 0; j < cols - 2; j++)
+                {
+                    long currentMaxValue = matrix[i, j] + matrix[i, j + 1] + matrix[i, j + 2]
+                        + matrix[i + 1, j] + matrix[i + 2, j] + matrix[i + 1, j + 1] + matrix[i + 2, j + 1]
+                        + matrix[i + 1, j + 2] + matrix[i + 2, j + 2];
+ 
+                    if (currentMaxValue > maxSumValue)
+                    {
+                        rowIndex = i;
+                        colIndex = j;
+                        maxSumValue = currentMaxValue;
+                    }
+                }
+            }
