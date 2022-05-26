@@ -1,0 +1,35 @@
+using System;
+using System.Linq;
+ 
+namespace Diagonal_Difference
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int n = int.Parse(Console.ReadLine());
+ 
+            int[,] arr = new int[n, n];
+ 
+            for (int i = 0; i < n; i++)
+            {
+                int[] temp = Console.ReadLine().Split(' ', StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToArray();
+                for (int j = 0; j < temp.Length; j++)
+                {
+                    arr[i, j] = temp[j];
+                }
+            }
+ 
+            int primarySum = 0;
+            int secondarySum = 0;
+ 
+            for (int row = 0; row < arr.GetLength(0); row++)
+            {
+                primarySum += arr[row, row];
+                secondarySum += arr[row, arr.GetLength(1) - 1 - row];
+            }
+ 
+            Console.WriteLine($"{Math.Abs(primarySum - secondarySum)}");
+        }
+    }
+}
