@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.30204.135
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01. Unique Usernames", "01. Unique Usernames\01. Unique Usernames.csproj", "{79426EF1-2EBE-45AD-897C-C4C7D23AB9DD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02. Sets of Elements", "02. Sets of Elements\02. Sets of Elements.csproj", "{799E8713-E935-4265-B609-9104DDFE2832}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03. Periodic Table", "03. Periodic Table\03. Periodic Table.csproj", "{3108FDA1-3370-4278-9DB8-32D511377D2C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{79426EF1-2EBE-45AD-897C-C4C7D23AB9DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{79426EF1-2EBE-45AD-897C-C4C7D23AB9DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{79426EF1-2EBE-45AD-897C-C4C7D23AB9DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{799E8713-E935-4265-B609-9104DDFE2832}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{799E8713-E935-4265-B609-9104DDFE2832}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{799E8713-E935-4265-B609-9104DDFE2832}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{799E8713-E935-4265-B609-9104DDFE2832}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3108FDA1-3370-4278-9DB8-32D511377D2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3108FDA1-3370-4278-9DB8-32D511377D2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3108FDA1-3370-4278-9DB8-32D511377D2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3108FDA1-3370-4278-9DB8-32D511377D2C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
