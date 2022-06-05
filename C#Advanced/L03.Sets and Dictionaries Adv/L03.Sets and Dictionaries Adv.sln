@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "06. Record Unique Names", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "07. Parking Lot", "07. Parking Lot\07. Parking Lot.csproj", "{DA08CDE9-60D7-4753-9EC4-EC487D18B08D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "08. SoftUni Party", "08. SoftUni Party\08. SoftUni Party.csproj", "{CACF7593-900A-44DD-9B5B-4935AB93A369}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{DA08CDE9-60D7-4753-9EC4-EC487D18B08D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA08CDE9-60D7-4753-9EC4-EC487D18B08D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DA08CDE9-60D7-4753-9EC4-EC487D18B08D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CACF7593-900A-44DD-9B5B-4935AB93A369}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CACF7593-900A-44DD-9B5B-4935AB93A369}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CACF7593-900A-44DD-9B5B-4935AB93A369}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CACF7593-900A-44DD-9B5B-4935AB93A369}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
