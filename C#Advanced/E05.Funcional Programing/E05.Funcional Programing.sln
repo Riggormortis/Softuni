@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30204.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02. Knights of Honor", "02. Knights of Honor\02. Knights of Honor.csproj", "{CF22B6BB-CBF1-4ABD-BF0F-C7679B346422}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01. Action Print", "01. Action Print\01. Action Print.csproj", "{A4A110BD-844E-499F-96C4-1E8A1C23121F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CF22B6BB-CBF1-4ABD-BF0F-C7679B346422}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF22B6BB-CBF1-4ABD-BF0F-C7679B346422}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF22B6BB-CBF1-4ABD-BF0F-C7679B346422}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF22B6BB-CBF1-4ABD-BF0F-C7679B346422}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4A110BD-844E-499F-96C4-1E8A1C23121F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4A110BD-844E-499F-96C4-1E8A1C23121F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4A110BD-844E-499F-96C4-1E8A1C23121F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4A110BD-844E-499F-96C4-1E8A1C23121F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CB8EDF71-CCF8-4F2A-97D2-2802759CA38B}
+	EndGlobalSection
+EndGlobal
