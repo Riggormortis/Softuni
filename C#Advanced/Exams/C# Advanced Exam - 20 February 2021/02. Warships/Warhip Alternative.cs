@@ -64,23 +64,23 @@ namespace _02._Warships
                 else if (matrix[row, col] == "#")
                 {
                     //up
-                    UpdateCell(matrix, ref firstPlayer, ref secondPlayer, row - 1, col);
+                    BombCell(matrix, ref firstPlayer, ref secondPlayer, row - 1, col);
                     //down
-                    UpdateCell(matrix, ref firstPlayer, ref secondPlayer, row + 1, col);
+                    BombCell(matrix, ref firstPlayer, ref secondPlayer, row + 1, col);
                     //right
-                    UpdateCell(matrix, ref firstPlayer, ref secondPlayer, row, col + 1);
+                    BombCell(matrix, ref firstPlayer, ref secondPlayer, row, col + 1);
                     //left
-                    UpdateCell(matrix, ref firstPlayer, ref secondPlayer, row, col - 1);
+                    BombCell(matrix, ref firstPlayer, ref secondPlayer, row, col - 1);
                     //up left/up right
                     //up left
-                    UpdateCell(matrix, ref firstPlayer, ref secondPlayer, row - 1, col - 1);
+                    BombCell(matrix, ref firstPlayer, ref secondPlayer, row - 1, col - 1);
                     //up right
-                    UpdateCell(matrix, ref firstPlayer, ref secondPlayer, row - 1, col + 1);
+                    BombCell(matrix, ref firstPlayer, ref secondPlayer, row - 1, col + 1);
                     //down left/down right
                     //down left
-                    UpdateCell(matrix, ref firstPlayer, ref secondPlayer, row + 1, col - 1);
+                    BombCell(matrix, ref firstPlayer, ref secondPlayer, row + 1, col - 1);
                     //down right
-                    UpdateCell(matrix, ref firstPlayer, ref secondPlayer, row + 1, col + 1);
+                    BombCell(matrix, ref firstPlayer, ref secondPlayer, row + 1, col + 1);
                     
                 }
 
@@ -111,7 +111,7 @@ namespace _02._Warships
             => row >= 0 && row < matrix.GetLength(0)
             && col >= 0 && col < matrix.GetLength(1);
 
-        private static void UpdateCell(string[,] matrix, ref int firstPlayer, ref int secondPlayer, int row, int col)
+        private static void BombCell(string[,] matrix, ref int firstPlayer, ref int secondPlayer, int row, int col)
         {
             if (!IsInRange(matrix, row, col))
             {
