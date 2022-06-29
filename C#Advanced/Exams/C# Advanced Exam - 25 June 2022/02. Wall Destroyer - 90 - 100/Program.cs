@@ -60,7 +60,7 @@ namespace _02._Wall_Destroyer
                         break;
                 }
 
-                PrintMatrix(matrix);
+                
 
                 command = Console.ReadLine();
             }
