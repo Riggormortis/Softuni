@@ -10,8 +10,8 @@ namespace PersonInfo
     {
         //Define public structure of the class
 
-        string Name { get; set; }
+        string Name { get; }
 
-        int Age { get; set; }
+        int Age { get; }
     }
 }
