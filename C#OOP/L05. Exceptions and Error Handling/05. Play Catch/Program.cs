@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace _05._Play_Catch
@@ -19,84 +20,119 @@ namespace _05._Play_Catch
          When you catch 3 exceptions – stop the input and print the elements of the array separated with ", ".
 
         */
-        static void Main(string[] args)
+        static void Main()
         {
-            // read initial array input
-            int[] input = Console.ReadLine().Split(" ", StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToArray();
+            const int TargetCountOfExceptions = 3;
 
-            var exceptionCount = 0;
+            int[] numbers = Console.ReadLine()
+                            .Split(' ', StringSplitOptions.RemoveEmptyEntries)
+                            .Select(int.Parse)
+                            .ToArray();
 
-            while (exceptionCount < 3)
+            int countOfCoughtExceptions = 0;
+
+            while (countOfCoughtExceptions < TargetCountOfExceptions)
             {
-                // receive command
+                string[] commandInfo = Console.ReadLine().Split(' ');
+
+                string command = commandInfo[0];
+
                 try
                 {
-                    input = ExecuteCommand(input);
+                    if (command == "Replace")
+                    {
+                        string index = commandInfo[1];
+                        string element = commandInfo[2];
+
+                        Replace(numbers, index, element);
+                    }
+                    else if (command == "Print")
+                    {
+                        string startIndex = commandInfo[1];
+                        string endIndex = commandInfo[2];
+
+                        Print(numbers, startIndex, endIndex);
+                    }
+                    else if (command == "Show")
+                    {
+                        string index = commandInfo[1];
+
+                        Show(numbers, index);
+                    }
                 }
-                catch (Exception ex)
+                catch (FormatException)
                 {
-                    exceptionCount++;
+                    countOfCoughtExceptions++;
+                    Console.WriteLine("The variable is not in the correct format!");
+                }
+                catch (ArgumentOutOfRangeException)
+                {
+                    countOfCoughtExceptions++;
+                    Console.WriteLine("The index does not exist!");
                 }
             }
 
-            // print out the elements of the array
+            Console.WriteLine(String.Join(", ", numbers));
         }
 
-        public int[] ExecuteCommand(string input)
+        private static void Show(int[] numbers, string indexAsString)
         {
-            // read command from command line
-            
-            
-            switch (command)
+            bool isIndexInteger = int.TryParse(indexAsString, out int index);
+
+            if (!isIndexInteger)
             {
-                case "Replace":
-                    
-                    try
-                    {
-
-                        int index = int.Parse(commandInput[1]);
-                        int element = int.Parse(commandInput[2]);
-                        var modifiedArray = ExecuteReplaceCommand(index, element, input);
-                        return modifiedArray;
-                        
-                    }
-                    catch (FormatException ex)
-                    {
-                        Console.WriteLine("The variable is not in the correct format!");
-                    }
-                    break;
-
-                case "Show":
-                    break;
-
-                case "Print":
-                    break;
-                
+                throw new FormatException();
             }
-            return new int[];
-        }
-        public string ParseCommand(string commandInput)
-        {
-            //split string return first
-            return "Replace";
+
+            if (index < 0 || index >= numbers.Length)
+            {
+                throw new ArgumentOutOfRangeException();
+            }
+
+            Console.WriteLine(numbers[index]);
         }
 
-        
-
-        public int[] ExecuteReplaceCommand(int index, int element, int[] input)
+        private static void Print(int[] numbers, string startIndexAsString, string endIndexAsString)
         {
-            try
+            bool isStartIndexInteger = int.TryParse(startIndexAsString, out int startIndex);
+            bool isEndIndexInteger = int.TryParse(endIndexAsString, out int endIndex);
+
+            if (!isStartIndexInteger || !isEndIndexInteger)
             {
-                input[index] = element;
+                throw new FormatException();
             }
-            catch (IndexOutOfRangeException ex)
+
+            if (startIndex < 0 || endIndex >= numbers.Length)
             {
-                
+                throw new ArgumentOutOfRangeException();
             }
-            return new int[];
+
+            List<int> elementsForPrinting = new List<int>(0);
+
+            for (int i = startIndex; i <= endIndex; i++)
+            {
+                elementsForPrinting.Add(numbers[i]);
+            }
+
+            Console.WriteLine(String.Join(", ", elementsForPrinting));
+        }
+
+        private static void Replace(int[] numbers, string indexAsString, string elementAsString)
+        {
+            bool isIndexInteger = int.TryParse(indexAsString, out int index);
+            bool isElementInteger = int.TryParse(elementAsString, out int element);
+
+            if (!isIndexInteger || !isElementInteger)
+            {
+                throw new FormatException();
+            }
+
+            if (index < 0 || index >= numbers.Length)
+            {
+                throw new ArgumentOutOfRangeException();
+            }
+
+            numbers[index] = element;
         }
     }
-
-
-
 }
