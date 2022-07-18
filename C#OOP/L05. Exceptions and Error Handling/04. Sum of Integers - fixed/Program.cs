@@ -10,12 +10,7 @@ namespace SumOfIntegers
         {
             var elements = Console.ReadLine().Split(" ").ToArray();
             
-           
-
-                
-
                 int sum = 0;
-
 
             //foreach (var item in elements)
             //{
@@ -38,8 +33,6 @@ namespace SumOfIntegers
             //}
 
             //Console.WriteLine($"The total sum of all integers is: {sum}");
-
-
 
             foreach (string value in elements)
             {
@@ -65,12 +58,7 @@ namespace SumOfIntegers
                 }
             }
             Console.WriteLine($"The total sum of all integers is: {sum}");
-
         }
     }
-
-
-
-
 }
     
