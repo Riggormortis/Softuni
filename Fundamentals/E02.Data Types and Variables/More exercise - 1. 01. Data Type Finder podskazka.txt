@@ -1,0 +1,24 @@
+using System;
+using System.Numerics;
+
+namespace ConditionalStatementsExercise
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int parsedNum;
+            bool isInteger = int.TryParse(Console.ReadLine(), out parsedNum);
+
+            if (isInteger)
+            {
+                Console.WriteLine($"The text was the integer: {parsedNum}");
+            }
+            else
+            {
+                Console.WriteLine("The text was not the integer!");
+            }
+        }
+
+    }
+}

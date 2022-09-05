@@ -1,0 +1,38 @@
+using System;
+using System.Numerics;
+
+namespace ConditionalStatementsExercise
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            int n = int.Parse(Console.ReadLine());
+            int waterTank = 255;
+           
+            int litres = 0;
+                       
+
+            for (int i = 0; i < n; i++)
+            {
+                int litres1 = int.Parse(Console.ReadLine());
+                
+                if (litres + litres1 > waterTank)
+                {
+                    Console.WriteLine("Insufficient capacity!");
+                }
+                
+                else
+                {
+                    litres += litres1;
+                                      
+                }
+               
+            }
+
+            Console.WriteLine(litres);
+        }
+
+    }
+}
