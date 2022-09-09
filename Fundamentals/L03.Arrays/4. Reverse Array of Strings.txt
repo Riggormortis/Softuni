@@ -1,0 +1,19 @@
+using System;
+using System.Linq;
+
+namespace ArraysLab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            string[] rawInput = Console.ReadLine().Split();
+
+            Array.Reverse(rawInput);
+
+            Console.WriteLine(string.Join(" ", rawInput));
+
+        }
+    }
+}

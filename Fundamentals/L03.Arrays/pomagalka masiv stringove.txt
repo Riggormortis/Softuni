@@ -1,0 +1,22 @@
+using System;
+
+namespace ArraysLab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string[] rawItems = Console.ReadLine().Split();
+            int[] items = new int[rawItems.Length];
+
+            for (int i = 0; i < rawItems.Length; i++)
+            {
+                items[i] = int.Parse(rawItems[i]);
+            }
+
+
+
+            Console.WriteLine(items);
+        }
+    }
+}
