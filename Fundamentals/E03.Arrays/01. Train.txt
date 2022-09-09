@@ -1,0 +1,28 @@
+using System;
+using System.Linq;
+
+namespace ArraysLab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int numberWagons = int.Parse(Console.ReadLine());
+
+            int sum = 0;
+
+            string elements = String.Empty;
+
+            for (int i = 0; i < numberWagons; i++)
+            {
+                int people = int.Parse(Console.ReadLine());
+                sum += people;
+                elements += people + " ";
+            }
+
+            Console.WriteLine(elements);
+            Console.WriteLine(sum);
+
+        }
+    }
+}

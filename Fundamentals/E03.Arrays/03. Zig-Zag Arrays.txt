@@ -1,0 +1,48 @@
+using System;
+using System.Linq;
+
+namespace ArraysLab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            int n = int.Parse(Console.ReadLine());
+            //string a = "1, 2;3 4; 5,     7";
+            //string[] strArr = a.Split(new char[] { ',', ';' },StringSplitOptions.RemoveEmptyEntries).Select(s => s.Trim()).ToArray();
+
+            int[] array1 = new int[n];
+            int[] array2 = new int[n];
+
+
+            for (int row = 1; row <= n; row++)
+            {
+                int[] currentRowData = Console.ReadLine()
+                    .Split(' ', StringSplitOptions.RemoveEmptyEntries)
+                    .Select(int.Parse)
+                    .ToArray();
+
+                int firstNumber = currentRowData[0];
+                int secondNumber = currentRowData[1];
+
+                if (row % 2 !=0)
+                {
+                    //odd row
+                    array1[row - 1] = firstNumber;
+                    array2[row - 1] = secondNumber;
+
+                }
+                else
+                {
+                    //even row
+                    array1[row - 1] = secondNumber;
+                    array2[row - 1] = firstNumber;
+                }
+
+            }
+            Console.WriteLine(String.Join(" ", array1));
+            Console.WriteLine(String.Join(" ", array2));
+        }
+    }
+}

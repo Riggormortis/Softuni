@@ -1,0 +1,102 @@
+using System;
+using System.Linq;
+
+namespace ArraysLab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+           
+            //Field -> n
+            //Array of integers
+            //0 -> no ladybug
+            //1 -> ladybug
+
+            int fieldsize = int.Parse(Console.ReadLine());
+            int[] ladybugsIndexes = Console.ReadLine()
+                .Split(' ', StringSplitOptions.RemoveEmptyEntries)
+                .Select(int.Parse)
+                .ToArray();
+
+            //initialize the field
+            int[] field = new int[fieldsize];
+            for (int index = 0; index < fieldsize; index++)
+            {
+                if (ladybugsIndexes.Contains(index))
+                {
+                    //if index is present in ladybugIndexes then there is a ladybug
+                    field[index] = 1;
+                }
+            }
+
+            //string command = Console.ReadLine();
+            //while (command != "end")
+            //{
+            //  command = Console.ReadLine();
+            //}
+            string command;
+            while ((command = Console.ReadLine()) != "end")
+            {
+                string[] cmdArgs = command
+                    .Split(' ', StringSplitOptions.RemoveEmptyEntries)
+                    .ToArray();
+
+                int initialIndex = int.Parse(cmdArgs[0]);
+                string direction = cmdArgs[1];
+                int flyLenght = int.Parse(cmdArgs[2]);
+                //first always check if index is valid!!
+                if (initialIndex < 0 || initialIndex >= field.Length)
+                {
+                    continue;
+                }
+
+                //we have valid index, then we check if there is a ladybug
+                if (field[initialIndex] == 0)
+                {
+                    continue;
+                }
+                //ladybug starts flying
+                //initial index is set to 0 cuz there is no ladybug anymore
+                field[initialIndex] = 0;
+
+                //calculate where the next index is
+                int nextIndex = initialIndex;
+                    while (true)
+                {
+                    if (direction == "right")
+                    {
+                        nextIndex += flyLenght;
+                    }
+                    else if (direction == "left")
+                    {
+                        nextIndex -= flyLenght;
+                    }
+
+                    if (nextIndex < 0 || nextIndex >= field.Length)
+                    {
+                        //next index is invalid (outside the field)
+                        //the ladybug is gone into the void
+                        break;
+                    }
+                    if (field[nextIndex] == 0)
+                    {
+                        //the next index is empty and valid to land
+                        //then we land the ladybug there
+                        break;
+                    }
+
+                }
+
+                if (nextIndex >= 0 && nextIndex < field.Length)
+                {
+                    //the next calculated index is valid!!!
+                    //the ladybug lands there
+                    field[nextIndex] = 1;
+                }
+            }
+
+            Console.WriteLine(String.Join(" ", field));
+        }
+    }
+}
