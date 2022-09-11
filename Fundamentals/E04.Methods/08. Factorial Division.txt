@@ -1,0 +1,30 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+
+class Solution
+{
+    static void Main(String[] args)
+    {
+        double first = double.Parse(Console.ReadLine());
+
+        double second = double.Parse(Console.ReadLine());
+
+        double sum = Factorial(first) / Factorial(second);
+
+        Console.WriteLine($"{sum:f2}");
+
+
+    }
+
+    static double Factorial(double f)
+    {
+        if (f == 0)
+            return 1;
+        else
+            return f * Factorial(f - 1);
+    }
+
+
+}

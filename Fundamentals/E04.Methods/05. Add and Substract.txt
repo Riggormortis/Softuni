@@ -1,0 +1,36 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+
+class Solution
+{
+    static void Main(String[] args)
+    {
+        int first = int.Parse(Console.ReadLine());
+        int second = int.Parse(Console.ReadLine());
+        int third = int.Parse(Console.ReadLine());
+
+        int Result = extractNumber(first, second, third);
+
+        Console.WriteLine(Result);
+
+      }
+
+
+    static int SumNumbers (int first, int second)
+    {
+        int sum = first + second;
+
+        return sum;
+    }
+
+    static int extractNumber (int first, int second, int third)
+    {
+        int Result = SumNumbers(first, second);
+
+        int endResult = Result - third;
+
+        return endResult;
+    }
+}

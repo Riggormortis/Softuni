@@ -1,0 +1,34 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+
+class Solution
+{
+    static void Main(String[] args)
+    {
+        string word = Console.ReadLine();
+
+        int vowelsCount = GetVowelsCount(word);
+
+        Console.WriteLine(vowelsCount);
+
+    }
+
+    static int GetVowelsCount(string word)
+    {
+        char[] vowels = new char[] { 'a', 'e', 'i', 'o', 'u' };
+
+        int vowelsCount = 0;
+        foreach (char ch in word.ToLower())
+        {
+            if (vowels.Contains(ch))
+            {
+                //current character is a vowel
+                vowelsCount++;
+            }
+        }
+
+        return vowelsCount;
+    }
+}

@@ -1,0 +1,32 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+
+class Solution
+{
+    static void Main(String[] args)
+    {
+        char inputOne = char.Parse(Console.ReadLine());
+        char inputTwo = char.Parse(Console.ReadLine());
+
+        PrintTheCharsInRange(inputOne, inputTwo);
+
+
+    }
+
+    private static void PrintTheCharsInRange(char firstCharacter, char secondCharacter)
+    {
+        int startCharacter = Math.Min(firstCharacter, secondCharacter);
+        int endCharacter = Math.Max(firstCharacter, secondCharacter);
+
+        for (int i = ++startCharacter; i < endCharacter; i++)
+        {
+            Console.Write((char)i + " ");
+        }
+
+        Console.WriteLine();
+    }
+
+
+}

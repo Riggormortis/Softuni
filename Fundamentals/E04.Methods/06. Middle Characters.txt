@@ -1,0 +1,32 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+
+class Solution
+{
+    static void Main(String[] args)
+    {
+        string input = Console.ReadLine();
+
+        Console.WriteLine(GetMiddleCharacter(input));
+
+      }
+
+    static string GetMiddleCharacter(string input)
+    {
+        int lenght = input.Length;
+        string result = "";
+
+        if (lenght % 2 == 1)
+        {
+            result = input[input.Length / 2].ToString();
+        }
+        else
+        {
+            result = input[input.Length/2 - 1].ToString() + input[input.Length / 2].ToString();
+        }
+
+        return result;
+    }
+}
