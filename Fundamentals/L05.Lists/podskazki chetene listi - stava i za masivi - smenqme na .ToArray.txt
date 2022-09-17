@@ -1,0 +1,36 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+
+
+public class Program
+{
+    public static void Main()
+    {
+        //pri zadacha - broi elementi i posle chetem tozi ->>>
+        
+        int NumberOfElements = int.Parse(Console.ReadLine());
+        List<int> elements = new List<int>();
+
+
+        for (int i = 0; i < NumberOfElements; i++)
+        {
+            int currentNumber = int.Parse(Console.ReadLine());
+            elements.Add(currentNumber);
+        }
+        Console.WriteLine(string.Join(", ", elements));
+
+
+        //po lesniq i udoben - naizust -->>
+
+        List<int> numbers = Console.ReadLine()
+            .Split()
+            .Select(int.Parse)
+            .ToList();
+
+
+
+    }
+
+}
