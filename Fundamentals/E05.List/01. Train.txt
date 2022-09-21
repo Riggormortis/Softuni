@@ -1,0 +1,57 @@
+using System;
+using System.Linq;
+using System.Collections.Generic;
+namespace P02._Articles
+{
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            List<int> listWagons = Console.ReadLine()
+                 .Split(" ")
+                 .Select(int.Parse)
+                 .ToList();
+
+            int maxCapacity = int.Parse(Console.ReadLine());
+
+            string command = Console.ReadLine();
+            while (command != "end")
+            {
+                string[] token = command.Split();
+                string action = token[0];
+
+                if (action == "Add")
+                {
+                    int passengers = int.Parse(token[1]);
+                    listWagons.Add(passengers);
+                    
+                }
+                else
+                {
+                    int passengers = int.Parse(token[0]);
+                    for (int i = 0; i < listWagons.Count; i++)
+                    {
+                        if (listWagons[i] + passengers <= maxCapacity)
+                        {
+                            listWagons[i] += passengers;
+                            break;
+                        }
+                        else
+                        {
+                            continue;
+                        }
+
+                    }
+
+                }
+
+
+                command = Console.ReadLine();
+            }
+
+            Console.WriteLine(string.Join(" ", listWagons));
+        }
+    }
+}
+

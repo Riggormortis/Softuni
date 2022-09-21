@@ -1,0 +1,25 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+
+public class Program
+{
+    public static void Main()
+    {
+        List<string> words = Console.ReadLine()
+            .Split("|")
+            .Reverse()
+            .ToList();
+
+        List<string> resultList = new List<string>();
+
+        foreach (var item in words)
+        {
+            resultList.AddRange(item.Split(" ", StringSplitOptions.RemoveEmptyEntries).ToList());
+        }
+
+        Console.WriteLine(String.Join(" ", resultList));
+    }
+}

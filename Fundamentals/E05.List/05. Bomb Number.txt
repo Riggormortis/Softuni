@@ -1,0 +1,76 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+
+
+public class Program
+{
+    public static void Main()
+    {
+        List<int> numbers = Console.ReadLine()
+            .Split(' ', StringSplitOptions.RemoveEmptyEntries)
+            .Select(int.Parse)
+            .ToList();
+
+        int[] bombInfo = Console.ReadLine()
+            .Split(' ', StringSplitOptions.RemoveEmptyEntries)
+            .Select(int.Parse)
+            .ToArray();
+
+        int bombNumber = bombInfo[0];
+        int bombPower = bombInfo[1];
+
+        //int indexOfBomb;
+        //while ((indexOfBomb = numbers.IndexOf(bombNumber)) >= 0)
+        //{
+
+        //}
+        while (true)
+        {
+            int indexOfBomb = numbers.IndexOf(bombNumber); //<- IndexOf - used to find the zero based index of the first occurrence of a specified character or string within current instance of the string. The method returns -1 if the character or string is not found.
+
+            if (indexOfBomb == -1)
+            {
+                //no more bombs inside the list
+                break;
+            }
+            DetonateBomb(numbers, indexOfBomb, bombPower);
+        }
+        Console.WriteLine(numbers.Sum());
+    }
+
+
+   
+    static void DetonateBomb(List<int> numbers, int indexOfBomb, int bombPower)
+    {
+        //for a single bomb
+        
+        int rightCount = indexOfBomb + bombPower;
+        for (int cnt = indexOfBomb; cnt <= rightCount; cnt++)
+        {
+            if (indexOfBomb >= numbers.Count)
+            {
+                break;
+            }
+
+            numbers.RemoveAt(indexOfBomb);
+        }
+
+        int leftCount = indexOfBomb - bombPower;
+        if (leftCount < 0)
+        {
+            leftCount = 0;
+        }
+        for (int cnt = leftCount; cnt < indexOfBomb; cnt++)
+        {
+            if (leftCount >= numbers.Count)
+            {
+                //it is imposible, but still good to put it
+                break;
+            }
+            numbers.RemoveAt(leftCount);
+        }
+    }
+   
+}
