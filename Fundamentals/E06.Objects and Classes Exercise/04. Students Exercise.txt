@@ -1,0 +1,64 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Numerics;
+
+namespace P04.Students
+{
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            List<Student> students = new List<Student>();
+
+            int n = int.Parse(Console.ReadLine());
+
+
+            for (int i = 1; i <= n; i++)
+            {
+                string[] studentArgs = Console.ReadLine()
+                    .Split(' ', StringSplitOptions.RemoveEmptyEntries)
+                    .ToArray();
+                string currStudentFirstName = studentArgs[0];
+                string currStudentLastName = studentArgs[1];
+                double currStudentGrade = double.Parse(studentArgs[2]);
+
+
+                Student currStudent = new Student(currStudentFirstName, currStudentLastName, currStudentGrade);
+
+                students.Add(currStudent);
+            }
+
+            List<Student> orderedStudents = students.OrderByDescending(s => s.Grade).ToList();
+
+            foreach (Student student in orderedStudents)
+            {
+                Console.WriteLine($"{student.FirstName} {student.LastName}: {student.Grade:f2}");
+            }
+
+        }
+    }
+
+    class Student
+    {
+        public Student(string firstName, string lastName, double grade) //argumenti
+        {
+            //Allways called when new Student is being created
+            this.FirstName = firstName; //zapisvame argumenta v property-to
+            this.LastName = lastName;
+            this.Grade = grade;
+
+        }
+        public string FirstName { get; set; } //-propyrti
+
+        public string LastName { get; set; }
+
+        public double Grade { get; set; }
+
+    }
+
+     
+
+    
+}
