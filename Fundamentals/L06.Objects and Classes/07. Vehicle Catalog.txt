@@ -1,0 +1,79 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp7
+{
+    class Person
+    {
+        public Person(string name, string id, int age)
+        {
+            this.Name = name;
+            this.ID = id;
+            this.Age = age;
+        }
+
+        public string Name { get; set; }
+
+        public string ID { get; set; }
+
+        public int Age { get; set; }
+
+
+    }
+
+    class Catalog
+    {
+        public Catalog()
+        {
+            this.Persons = new List<Person>();
+            
+
+        }
+
+        public List<Person> Persons { get; set; }
+                
+    }
+
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            Catalog catalogObject = new Catalog();
+
+
+
+            string command = Console.ReadLine();
+            
+            while (command != "End")
+            {
+                string[] cmdArgs = command
+                .Split(' ', StringSplitOptions.RemoveEmptyEntries)
+                .ToArray();
+
+                string name = cmdArgs[0].ToString();
+                string id = cmdArgs[1].ToString();
+
+                int age = int.Parse(cmdArgs[2]);
+
+                Person newPerson = new Person(name, id, age);
+                catalogObject.Persons.Add(newPerson);
+
+
+                command = Console.ReadLine();
+            }
+
+            List<Person> result = catalogObject.Persons.OrderBy(Person => Person.Age).ToList();
+            
+            foreach (var item in result)
+            {
+                Console.WriteLine($"{item.Name} with ID: {item.ID} is {item.Age} years old.");
+            }
+
+        }
+    }
+}
