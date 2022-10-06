@@ -1,0 +1,43 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp7
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            List<int> numbers = Console.ReadLine()
+                .Split(' ', StringSplitOptions.RemoveEmptyEntries)
+                .Select(int.Parse)
+                .ToList();
+
+            // number => how many times we saw it
+
+            SortedDictionary<int, int> occurencies = new SortedDictionary<int, int>();
+
+            foreach (int number in numbers)
+            {
+                if (occurencies.ContainsKey(number))
+                {
+                    occurencies[number]++;
+                }
+                else
+                {
+                    occurencies.Add(number, 1);
+                }
+            }
+
+
+            foreach (var item in occurencies)
+            {
+                Console.WriteLine($"{item.Key} -> {item.Value} ");
+            }    
+
+
+        }
+    }
+}
