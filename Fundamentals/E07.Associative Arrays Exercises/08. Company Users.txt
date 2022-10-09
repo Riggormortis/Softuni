@@ -1,0 +1,48 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp7
+{
+    public class Program
+    {
+        static void Main(string[] args)
+        {
+            Dictionary<string, List<string>> companies = new Dictionary<string, List<string>>();
+
+            string input = Console.ReadLine();
+
+            while (input != "End")
+            {
+                string[] inpArr = input.Split(" -> ");
+
+                string companyName = inpArr[0];
+                string empID = inpArr[1];
+
+                if (!companies.ContainsKey(companyName))
+                {
+                    companies.Add(companyName, new List<string>());
+                }
+                if (!companies[companyName].Contains(empID))
+                {
+                    companies[companyName].Add(empID);
+                }
+
+                input = Console.ReadLine();
+            }
+
+
+            foreach (var kvp in companies)
+            {
+                Console.WriteLine($"{kvp.Key}");
+
+                foreach (var empID in kvp.Value)
+                {
+                    Console.WriteLine($"-- {empID}");
+                }
+            }
+        }
+    }
+}

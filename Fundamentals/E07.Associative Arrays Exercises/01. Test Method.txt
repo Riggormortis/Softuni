@@ -1,0 +1,43 @@
+using ConsoleApp7;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace UnitTestProject1
+{
+    [TestClass]
+    public class UnitTest1
+    {
+        [TestMethod]
+        public void InputWordTextResults3Chars()
+        {
+            // input word "text"
+            //Arrange
+            var testInput = new List<char> { 't', 'e', 'x', 't' };
+            var expectedOutput = new Dictionary<char, int>
+            {
+                { 't', 2 },
+                { 'e', 1 },
+                { 'x', 1 }
+            };
+
+            //Act
+            var res = Program.CharCalculation(testInput);
+            //Assert
+            Assert.AreEqual(expectedOutput.Count, res.Count);            
+        }
+
+        [TestMethod]
+        public void InputWordOnlySpacesResults0Chars()
+        {
+            // input word "text"
+            //Arrange
+            var testInput = new List<char> { ' ', ' ', ' ', ' ' };
+
+            //Act
+            var res = Program.CharCalculation(testInput);
+            //Assert
+            Assert.AreEqual(0, res.Count);
+        }
+    }
+}

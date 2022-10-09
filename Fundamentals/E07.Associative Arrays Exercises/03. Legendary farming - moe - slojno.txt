@@ -1,0 +1,132 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp7
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //string[] keyMaterialsNames = new string[] { "shards", "fragments", "motes" };
+
+
+            //dictionary for key materials
+            Dictionary<string, int> keyMaterials = new Dictionary<string, int>()
+            {
+                { "shards", 0},
+                { "motes", 0 },
+                { "fragments", 0}
+                
+            };
+            //dictionary for other stuff (aka junk)
+            Dictionary<string, int> junk = new Dictionary<string, int>();
+            
+            string itemObtained = string.Empty;
+
+            //don't know how many lines we should read
+            while (String.IsNullOrEmpty(itemObtained))
+            {
+                //program must be Case-Insensitive
+                string materialsLine = Console.ReadLine().ToLower();
+                string[] materialsArr = materialsLine
+                    .Split(' ', StringSplitOptions.RemoveEmptyEntries)
+                    .ToArray();
+
+                ProcesInputLine(keyMaterials, junk, materialsArr, ref itemObtained);
+
+            }
+
+            PrintOutput(keyMaterials, junk, itemObtained);
+        }
+
+
+
+        static void ProcesInputLine(Dictionary<string, int> keyMaterials, Dictionary<string, int> junk, string[] materialsArr, ref string itemObtained)
+        {
+            const int minCraftMaterialQty = 250;
+
+            Dictionary<string, string> craftingTable = new Dictionary<string, string>()
+            {
+                {"shards", "Shadowmourne" },
+                { "fragments", "Valanyr"},
+                { "motes", "Dragonwrath" }
+            };
+
+
+            for (int i = 0; i < materialsArr.Length; i += 2)
+            {
+                string currMaterial = materialsArr[i + 1];
+                int currMatQty = int.Parse(materialsArr[i]);
+
+                if (keyMaterials.ContainsKey(currMaterial))
+                {
+                    //the currMaterial is Key material 
+                    keyMaterials[currMaterial] += currMatQty;
+
+                    if (keyMaterials[currMaterial] >= minCraftMaterialQty)
+                    {
+                        itemObtained = craftingTable[currMaterial];
+                        keyMaterials[currMaterial] -= minCraftMaterialQty;
+                        break;
+                    }
+                    //ili
+                    //if (keyMaterials["shards"] >= minCraftMaterialQty)
+                    //{
+                    //    itemsObtained = "Shadowmourne";
+                    //    keyMaterials["shards"] -= minCraftMaterialQty;
+                    //break;
+                    //}
+
+                    //else if (keyMaterials["fragments"] >= minCraftMaterialQty)
+                    //{
+                    //    itemsObtained = "Valanyr";
+                    //    keyMaterials["fragments"] -= minCraftMaterialQty;
+                    //break;
+                    //}
+                    //else if (keyMaterials["motes"] >= minCraftMaterialQty)
+                    //{
+                    //    itemsObtained = "Dragonwrath";
+                    //    keyMaterials["motes"] -= minCraftMaterialQty;
+                    //break;
+                    //}
+                }
+                else
+                {
+                    //the currMateiral is junk
+                    if (!junk.ContainsKey(currMaterial))
+                    {
+                        junk[currMaterial] = 0;
+                    }
+
+                    junk[currMaterial] += currMatQty;
+                }
+
+            }
+        }
+
+        static void PrintOutput(Dictionary<string, int> keyMaterialsLeft, Dictionary<string, int> junk,
+           string itemObtained)
+        {
+            Console.WriteLine($"{itemObtained} obtained!");
+
+            foreach (var kvp in keyMaterialsLeft)
+            {
+                string keyMaterial = kvp.Key;
+                int qtyLeft = kvp.Value;
+
+                Console.WriteLine($"{keyMaterial}: {qtyLeft}");
+            }
+
+            foreach(var kvp in junk)
+            {
+                string junkMaterial = kvp.Key;
+                int junkQty = kvp.Value;
+
+                Console.WriteLine($"{junkMaterial}: {junkQty}");
+            }
+        }
+    }
+}

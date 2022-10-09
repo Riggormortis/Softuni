@@ -1,0 +1,51 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp7
+{
+    public class Program
+    {
+        static void Main(string[] args)
+        {
+            var input = Console.ReadLine()
+                .ToList();
+            var output = CharCalculation(input);
+
+            foreach (var kvp in output)
+            {
+                char character = kvp.Key;
+                int occurrences = kvp.Value;
+
+                Console.WriteLine($"{character} -> {occurrences}");
+            }
+        }
+
+        public static Dictionary<char, int> CharCalculation(List<char> input)
+        {
+            Dictionary<char, int> characters = new Dictionary<char, int>();
+
+            for (int i = 0; i < input.Count; i++)
+            {
+                if (input[i].Equals(' '))
+                {
+                    continue;
+                }
+                if (characters.ContainsKey(input[i]))
+                {
+                    //the currMaterial is Key material 
+                    characters[input[i]]++;
+
+                }
+                else
+                {
+                    characters.Add(input[i], 1);
+                }
+
+            }
+            return characters;
+        }
+    }
+}

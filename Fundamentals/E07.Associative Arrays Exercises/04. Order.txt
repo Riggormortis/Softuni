@@ -1,0 +1,47 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp7
+{
+    public class Program
+    {
+        static void Main(string[] args)
+        {
+            var order = new Dictionary<string, List<decimal>>();
+
+            while (true)
+            {
+                string[] input = Console.ReadLine()
+                    .Split(' ')
+                    .ToArray();
+
+                string key = input[0];
+                if (key.ToLower() == "buy")
+                {
+                    break;
+                }
+                decimal price = decimal.Parse(input[1]);
+                decimal quantity = decimal.Parse(input[2]);
+
+                if (!order.ContainsKey(key))
+                {
+                    order.Add(key, new List<decimal>() { price, quantity });
+                }
+                else
+                {
+                    order[key][0] = price;
+                    order[key][1] += quantity;
+                }
+                
+            }
+
+            foreach (var product in order)
+            {
+               Console.WriteLine($"{product.Key} -> {(product.Value[0] * product.Value[1]):f2}");
+            }
+         }
+    }
+}

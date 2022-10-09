@@ -1,0 +1,59 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp7
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Dictionary<string, long> resources = new Dictionary<string, long>();
+
+            string resourceCmd = Console.ReadLine();
+
+            while (resourceCmd != "stop" )
+            {
+                int quantity = int.Parse(Console.ReadLine());
+
+                ////first way
+                //if (resources.ContainsKey(resourceCmd))
+                //{
+                //    //the given resource already exists with some quantity
+                //    resources[resourceCmd] += quantity;
+                //}
+                //else
+                //{
+                //    resources.Add(resourceCmd, quantity);
+                //}
+
+                //second way
+
+                if (!resources.ContainsKey(resourceCmd))
+                {
+                    //firstly add the new resource
+                    //when adding we set default quantity to zer
+                    resources[resourceCmd] = 0;
+                }
+
+                resources[resourceCmd] += quantity;
+
+
+
+                resourceCmd = Console.ReadLine();
+            }
+
+
+            foreach (var rqp in resources)
+            {
+                string currentResource = rqp.Key;
+                long resourceQty = rqp.Value;
+
+                Console.WriteLine($"{currentResource} -> {resourceQty}");
+            }
+
+        }
+    }
+}
