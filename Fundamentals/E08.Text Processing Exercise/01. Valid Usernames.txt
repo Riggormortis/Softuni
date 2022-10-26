@@ -1,0 +1,41 @@
+using System;
+using System.Text;
+using System.Diagnostics;
+using System.Linq;
+using System.Text.RegularExpressions;
+using System.Collections.Generic;
+
+namespace _00.Demos
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            List<string> usernames = Console.ReadLine()
+                .Split(", ")
+                .ToList();
+
+            List<string> approvedUsernames = new List<string>();
+
+
+            foreach (var item in usernames)
+            {
+                if (item.Count() >= 3)
+                {
+                    bool result = item.All(c => Char.IsLetterOrDigit(c) || c == '_'|| c == '-');
+                    if (result)
+                    {
+                        approvedUsernames.Add(item);
+                    } 
+                }
+            }
+
+            foreach (string name in approvedUsernames)
+            {
+                Console.WriteLine(name);
+            }
+
+
+        }
+    }
+}

@@ -1,0 +1,60 @@
+using System;
+using System.Text;
+using System.Diagnostics;
+using System.Linq;
+using System.Text.RegularExpressions;
+using System.Collections.Generic;
+
+namespace _00.Demos
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            
+            
+            string[] input = Console.ReadLine().Split();
+
+            string firstString = input[0];
+            string secondString = input[1];
+
+            int sum = SumStrings(firstString, secondString);
+
+            Console.WriteLine(sum);
+           
+        }
+
+        private static int SumStrings(string firstString, string secondString)
+        {
+            char[] firsArr = firstString.ToCharArray();
+            char[] scndArr = secondString.ToCharArray();
+
+            int sum = 0;
+
+            int minLenght = Math.Min(firsArr.Length, scndArr.Length);
+            int maxLenght = Math.Max(firsArr.Length, scndArr.Length);
+
+            for (int i = 0; i < minLenght; i++)
+            {
+                sum += firsArr[i] * scndArr[i];
+            }
+
+            if (maxLenght == firsArr.Length)
+            {
+                for (int i = minLenght; i < maxLenght; i++)
+                {
+                    sum += firsArr[i];
+                }
+            }
+            else
+            {
+                for (int i = minLenght; i < maxLenght; i++)
+                {
+                    sum += scndArr[i];
+                }
+            }
+
+            return sum;
+        }
+    }
+}

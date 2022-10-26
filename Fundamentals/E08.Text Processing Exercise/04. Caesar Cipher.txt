@@ -1,0 +1,34 @@
+using System;
+using System.Text;
+using System.Diagnostics;
+using System.Linq;
+using System.Text.RegularExpressions;
+using System.Collections.Generic;
+
+namespace _04.CaesarCipher
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+
+            string phrase = Console.ReadLine();
+
+
+            char[] phraseAsChars = phrase.ToCharArray();
+
+            StringBuilder cypheredWord = new StringBuilder();
+
+
+            for (int i = 0; i < phraseAsChars.Length; i++)
+            {
+                char toAdd = (char)(phraseAsChars[i] + 3);
+                cypheredWord.Append(toAdd);
+            }
+
+
+            Console.WriteLine(cypheredWord.ToString());
+        }
+    }
+}
