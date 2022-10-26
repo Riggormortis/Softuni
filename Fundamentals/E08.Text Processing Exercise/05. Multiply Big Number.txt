@@ -1,0 +1,45 @@
+using System;
+using System.Text;
+using System.Diagnostics;
+using System.Linq;
+using System.Text.RegularExpressions;
+using System.Collections.Generic;
+
+namespace _00.Demos
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string firstNumberString = Console.ReadLine();
+
+            firstNumberString = firstNumberString.TrimStart(new char[] { '0' });
+            char[] bigNum = firstNumberString.ToCharArray();
+
+            int secondNumber = int.Parse(Console.ReadLine());
+
+            if (secondNumber == 0)
+            {
+                Console.WriteLine("0");
+                return;
+            }
+
+            List<string> newNum = new List<string>();
+            int parsedNum = 0;
+
+            for (int i = bigNum.Length - 1; i >= 0; i--)
+            {
+                parsedNum = (int.Parse(Convert.ToString(bigNum[i])) * secondNumber) + parsedNum;
+
+                newNum.Insert(0, (parsedNum % 10).ToString());
+                parsedNum /= 10;
+            }
+
+
+            if (parsedNum > 0)
+                Console.WriteLine($"{parsedNum}{string.Join("", newNum)}");
+            else
+                Console.WriteLine($"{string.Join("", newNum)}");
+        }
+    }
+}

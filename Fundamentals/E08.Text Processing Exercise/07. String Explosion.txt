@@ -1,0 +1,52 @@
+using System;
+using System.Text;
+using System.Diagnostics;
+namespace _00.Demos
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string inputString = Console.ReadLine();
+            StringBuilder outputText = new StringBuilder();
+            int bombPower = 0;
+
+            for (int i = 0; i < inputString.Length; i++)
+            {
+                char currCh = inputString[i];
+
+                if (currCh == '>')
+                {
+                    int currBombPower = GetIntValueOfCharacter(inputString[i + 1]);
+
+                    outputText.Append(currCh);
+                    bombPower += currBombPower;
+                }
+                else
+                {
+                    if (bombPower > 0)
+                    {
+                        //if there is denotaded bomb
+                        //skip the char and decrease bombPower
+                        bombPower--;
+                    }
+                    else
+                    {
+                        outputText.Append(currCh);
+                    }
+
+                }
+            }
+
+            Console.WriteLine(outputText.ToString());
+
+        }
+        
+
+        static int GetIntValueOfCharacter(char ch)
+        {
+            //convert char to int and return ASCII value
+            return (int)ch - 48;
+        }
+    }
+}

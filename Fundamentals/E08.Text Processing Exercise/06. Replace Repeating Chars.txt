@@ -1,0 +1,31 @@
+using System;
+using System.Text;
+using System.Diagnostics;
+using System.Linq;
+using System.Text.RegularExpressions;
+using System.Collections.Generic;
+
+namespace _00.Demos
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string myString = Console.ReadLine();
+            char prevChar = '\0';
+            StringBuilder sb = new StringBuilder();
+            foreach (char chr in myString)
+            {
+                
+                if (chr != prevChar)
+                {
+                    sb.Append(chr);
+                    prevChar = chr;
+                }
+              
+            }
+
+            Console.WriteLine(sb.ToString());
+        }
+    }
+}
